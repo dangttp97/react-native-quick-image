@@ -39,6 +39,14 @@
     "ios",
     "android"
   ],
+  "codegenConfig": {
+    "name": "react_native_quick_image",
+    "type": "all",
+    "jsSrcDir": ".",
+    "android": {
+      "javaPackageName": "com.facebook.fbreact.specs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dangttp97/react-native-quick-image.git"
