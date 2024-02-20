@@ -1,5 +1,7 @@
 package com.phuongdang.quickimage;
 
+import androidx.annotation.NonNull;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -36,6 +38,7 @@ public class OkHttpProgressResponseBody extends ResponseBody {
     return responseBody.contentLength();
   }
 
+  @NonNull
   @Override
   public BufferedSource source() {
     if (bufferedSource == null) {
@@ -49,7 +52,7 @@ public class OkHttpProgressResponseBody extends ResponseBody {
       long totalBytesRead = 0L;
 
       @Override
-      public long read(Buffer sink, long byteCount) throws IOException {
+      public long read(@NonNull Buffer sink, long byteCount) throws IOException {
         long bytesRead = super.read(sink, byteCount);
         long fullLength = responseBody.contentLength();
         if (bytesRead == -1) {

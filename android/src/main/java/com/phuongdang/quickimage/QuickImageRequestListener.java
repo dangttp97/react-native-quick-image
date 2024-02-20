@@ -32,8 +32,8 @@ public class QuickImageRequestListener implements RequestListener<Drawable> {
   public boolean onLoadFailed(@Nullable GlideException e, @Nullable Object model, @NonNull Target<Drawable> target, boolean isFirstResource) {
     QuickImageOkHttpProgressGlideModule.forget(key);
 
-    if(!(target instanceof ImageViewTarget<Drawable>))
-    return false;
+    if(!(target instanceof ImageViewTarget))
+      return false;
 
     QuickImageViewWithUrl view = (QuickImageViewWithUrl) ((ImageViewTarget) target).getView();
     ThemedReactContext context = (ThemedReactContext) view.getContext();
@@ -51,7 +51,7 @@ public class QuickImageRequestListener implements RequestListener<Drawable> {
 
   @Override
   public boolean onResourceReady(@NonNull Drawable resource, @NonNull Object model, Target<Drawable> target, @NonNull DataSource dataSource, boolean isFirstResource) {
-    if(!(target instanceof ImageViewTarget<Drawable>))
+    if(!(target instanceof ImageViewTarget))
       return false;
 
     QuickImageViewWithUrl view = (QuickImageViewWithUrl) ((ImageViewTarget) target).getView();
