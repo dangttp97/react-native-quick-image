@@ -17,13 +17,21 @@ public class QuickImageViewManagerDelegate<T extends View, U extends BaseViewMan
   @Override
   public void setProperty(T view, String propName, @Nullable Object value) {
     switch (propName) {
-      case "source" -> mViewManager.setSource(view, (ReadableMap) value);
-      case "defaultSource" ->
+      case "source":
+        mViewManager.setSource(view, (ReadableMap) value);
+        break;
+      case "defaultSource":
         mViewManager.setDefaultSource(view, value == null ? null : (String) value);
-      case "resizeMode" -> mViewManager.setResizeMode(view, (String) value);
-      case "tintColor" ->
+        break;
+      case "resizeMode":
+        mViewManager.setResizeMode(view, (String) value);
+        break;
+      case "tintColor":
         mViewManager.setTintColor(view, ColorPropConverter.getColor(value, view.getContext()));
-      default -> super.setProperty(view, propName, value);
+        break;
+      default:
+        super.setProperty(view, propName, value);
+        break;
     }
   }
 }

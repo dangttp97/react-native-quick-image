@@ -54,7 +54,7 @@ public class QuickImageViewManager extends SimpleViewManager<QuickImageViewWithU
   public QuickImageViewManager(){
     mDelegate = new QuickImageViewManagerDelegate<>(this);
   }
-  
+
   private static Activity getActivityFromContext(final Context context) {
     if (context instanceof Activity) {
       return (Activity) context;
@@ -66,7 +66,8 @@ public class QuickImageViewManager extends SimpleViewManager<QuickImageViewWithU
         return (Activity) baseContext;
       }
 
-      if (baseContext instanceof ContextWrapper contextWrapper) {
+      if (baseContext instanceof ContextWrapper) {
+        ContextWrapper contextWrapper = (ContextWrapper) baseContext;
         final Context wrapperBaseContext = contextWrapper.getBaseContext();
         if (wrapperBaseContext instanceof Activity) {
           return (Activity) wrapperBaseContext;
