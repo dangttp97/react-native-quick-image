@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
 public class QuickImageViewConverter {
   private static final Drawable TRANSPARENT_DRAWABLE = new ColorDrawable(Color.TRANSPARENT);
 
-  private static final Map<String, QuickImageCacheControl> QUICK_IMAGE_CACHE_CONTROL_MAP = new HashMap<>() {{
+  private static final Map<String, QuickImageCacheControl> QUICK_IMAGE_CACHE_CONTROL_MAP = new HashMap() {{
     put("immutable", IMMUTABLE);
     put("web", WEB);
     put("cacheOnly", CACHE_ONLY);
